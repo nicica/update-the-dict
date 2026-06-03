@@ -1,0 +1,18 @@
+{"doc_id":"A1","title":"Introduction to Information Retrieval","split":"A","text":"Information retrieval is the process of finding relevant documents in large collections."}
+{"doc_id":"A2","title":"Boolean Model","split":"A","text":"The Boolean model uses AND OR and NOT operators to match documents exactly."}
+{"doc_id":"A3","title":"Inverted Index","split":"A","text":"An inverted index maps terms to posting lists for fast search."}
+{"doc_id":"A4","title":"Phrase Search","split":"A","text":"Phrase queries require word positions in the inverted index."}
+{"doc_id":"A5","title":"Vector Space Model","split":"A","text":"The vector space model ranks documents using term weights and cosine similarity."}
+{"doc_id":"A6","title":"Web Search","split":"A","text":"Web search engines use crawlers indexes and ranking algorithms."}
+{"doc_id":"B1","title":"Probabilistic Model","split":"B","text":"The probabilistic model estimates the probability that a document is relevant to a query."}
+{"doc_id":"B2","title":"Evaluation Measures","split":"B","text":"Precision and recall are common evaluation measures in information retrieval."}
+{"doc_id":"B3","title":"Recommender Systems","split":"B","text":"Recommender systems suggest items to users based on preferences and interactions."}
+{"doc_id":"B4","title":"Dynamic Indexing","split":"B","text":"Dynamic indexing supports efficient document addition and deletion."}
+{"doc_id":"B5","title":"Merging Indexes","split":"B","text":"Large search engines periodically merge indexes to improve query performance."}
+{"doc_id":"B6","title":"Stop Words","split":"B","text":"Some systems remove very common terms before indexing documents."}
+{"doc_id":"C1","title":"Auxiliary Index","split":"C","text":"An auxiliary index stores newly added documents before the next merge."}
+{"doc_id":"C2","title":"Lazy Deletion","split":"C","text":"Lazy deletion marks removed documents in a deletion list instead of updating every posting list."}
+{"doc_id":"C3","title":"Boolean Phrase Queries","split":"C","text":"Boolean retrieval can be combined with exact phrase queries."}
+{"doc_id":"C4","title":"Disk Persistence","split":"C","text":"Saving and loading the index from disk avoids re indexing the whole collection."}
+{"doc_id":"C5","title":"Posting List Compression","split":"C","text":"Posting lists can be compressed to reduce disk space."}
+{"doc_id":"C6","title":"Query Parser","split":"C","text":"A query parser converts text queries into Boolean expression trees."}
