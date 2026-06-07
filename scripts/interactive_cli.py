@@ -26,8 +26,8 @@ INDEX_PATH = PROJECT_ROOT / "data" / "index_store" / "boolean_ir_index.json"
 HELP = """
 Commands:
   search <query>       Run a Boolean query, e.g. search information AND retrieval
-  add_c                Add split C to the auxiliary index
-  delete_b             Lazily delete all documents from split B
+  add_x (a, b or c)    Add split X to the auxiliary index
+  delete_x (a, b or c) Lazily delete all documents from split X
   merge                Merge main and auxiliary indexes and remove tombstones
   stats                Show system statistics
   save                 Save the current index to data/index_store/boolean_ir_index.json
@@ -55,6 +55,7 @@ def build_initial_system() -> tuple[BooleanIRSystem, list]:
 
 def main() -> None:
     system, all_documents = build_initial_system()
+    split_a = split_documents(all_documents, "A")
     split_b = split_documents(all_documents, "B")
     split_c = split_documents(all_documents, "C")
 
@@ -82,6 +83,20 @@ def main() -> None:
             print(system.stats())
             continue
 
+        if command == "add_a":
+            try:
+                system.add_documents(split_a)
+                print("Added split A to the auxiliary index.")
+            except ValueError as exc:
+                print(f"Could not add A: {exc}")
+            continue
+        if command == "add_b":
+            try:
+                system.add_documents(split_b)
+                print("Added split B to the auxiliary index.")
+            except ValueError as exc:
+                print(f"Could not add B: {exc}")
+            continue    
         if command == "add_c":
             try:
                 system.add_documents(split_c)
@@ -90,10 +105,21 @@ def main() -> None:
                 print(f"Could not add C: {exc}")
             continue
 
+        if command == "delete_a":
+            system.delete_documents(document.doc_id for document in split_a)
+            print("Deleted split A using lazy deletion.")
+            continue
         if command == "delete_b":
             system.delete_documents(document.doc_id for document in split_b)
             print("Deleted split B using lazy deletion.")
             continue
+        if command == "delete_c":
+            system.delete_documents(document.doc_id for document in split_c)
+            print("Deleted split C using lazy deletion.")
+            continue
+
+
+
 
         if command == "merge":
             system.merge_indexes()
